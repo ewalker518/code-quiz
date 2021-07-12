@@ -77,6 +77,7 @@ function showQuestions() {
 }
 
 function questionClick() {
+    // if a question is answered wrong, 10 seconds are taken off
     if (this.value !== questions[questionArray].answer) {
         time -= 10;
 
@@ -92,6 +93,7 @@ function questionClick() {
 
     questionArray++;
 
+    // after all of the questions are finished, end the quiz
     if (questionArray === questions.length) {
         endQuiz();
         
@@ -101,7 +103,10 @@ function questionClick() {
 }
 
 function endQuiz() {
+    // stop the timer
     clearInterval(timer);
+
+    // hide the questions and display the content for the final-screen
     var questionTitleEl = document.getElementById("question-title");
     questionTitleEl.setAttribute("class", "hidden");
     choicesEl.setAttribute("class", "hidden");
@@ -114,6 +119,7 @@ function endQuiz() {
 }
 
 var timeOut = function() {
+    // hide the questions, display the timeout page, and prompt user to start over
     var questionTitleEl = document.getElementById("question-title");
     questionTitleEl.setAttribute("class", "hidden");
     choicesEl.setAttribute("class", "hidden");
@@ -132,6 +138,7 @@ function runTimer() {
 }
 
 function setHighScore() {
+    // take the value of the input
     var name = nameEl.value.trim();
     if (name !== "") {
     var highscores = JSON.parse(window.localStorage.getItem("highscores")) || [];
@@ -139,27 +146,15 @@ function setHighScore() {
         score: time,
         name: name
     };
+
+    // save score to local storage
     highscores.push(newScore)
     window.localStorage.setItem("highscores", JSON.stringify(highscores));
+
+    // redirect to the high score page
     window.location.href = "highscores.html";
     }
     console.log(newScore)
-}
-
-function showHighScores() {
-    highscores.forEach(function(score) {
-        var liTag = document.createElement("li");
-        liTag.textContent = score.name + " - " + score.score;
-        var olEl = document.getElementById("highscores");
-        olEl.appendChild(liTag);
-      });
-
-    var highscores = JSON.parse(window.localStorage.getItem("highscores")) || [];
-    highscores.sort(function(a, b) {
-        return b.score - a.score;
-      });
-    
-    showHighscores();
 }
 
 submitButtonEl.onclick = setHighScore;
