@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Quiz</title>
+    <link rel="stylesheet" href="./assets/style.css" />
+</head>
+<body>
+    <div class="highscores"><a href="highscores.html">View High Scores</a></div>
+
+    <div class="timer">Time Remaining: <span id="time">100</span></div>
+
+    <div class="content">
+        <div id="start">
+            <h1 class="title">Coding Quiz</h1>
+            <p>Try to answer all of the questions before time runs out! Be careful, any wrong answer will take 10 seconds off the clock!</p>
+            <button id="start-btn">Start Quiz!</button>
+        </div>
+
+        <div class="hidden" id="questions">
+            <h2 class="question-title" id="question-title"></h2>
+            <div class="choices" id="choices"></div>
+        </div>
+
+        <div class="hidden" id="final-screen">
+            <h2 class="final">You've completed the quiz!</h2>
+            <p>Final Score: <span id="final-score"></span></p>
+            <p>
+                Your Name: <input type="text" id="name" />
+                <button class="name-submit" id="submit">Submit</button>
+            </p>
+        </div>
+
+        <div class="hidden" id="lose-screen">
+            <h2 class="final">You've run out of time! Try again</h2>
+            <button onClick="window.location.reload()" id="restart">Restart</button>
+        </div>
+    </div>
+    
+    <script src="./assets/script.js"></script>
+</body>
+</html>

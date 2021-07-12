@@ -1,0 +1,87 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2.5rem;
+    color: #2c3e50;
+}
+
+a {
+    text-decoration: none;
+    color: #2c3e50;
+}
+
+a:hover {
+    color: #808b96;
+}
+
+.title {
+    text-align: center;
+    font-size: 3rem;
+    padding: 100px 0 0 0;
+}
+
+.content {
+    text-align: center;
+}
+
+.content p {
+    font-size: 1.5rem;
+}
+
+.final {
+    text-align: center;
+    font-size: 3rem;
+}
+
+.final-screen p {
+    font-size: 1.5rem;
+}
+
+button {
+    background-color: #2c3e50;
+    font-size: 1.3rem;
+    color: white;
+    padding: 15px 60px;
+    margin: 5px;
+    display: inline-block;
+    border: 0;
+    border-radius: 8px;
+}
+
+button:hover {
+    background-color: #808b96;
+}
+
+.highscores {
+    position: absolute;
+    left: 15px;
+    top: 15px;
+}
+
+.timer {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+}
+
+.hidden {
+    display: none;
+}
+
+.question-title {
+    font-size: 2rem;
+    margin-top: 20%;
+}
+
+.final {
+    font-size: 2rem;
+    margin-top: 20%;
+}
+
+.high-score {
+    margin-top: 10%;
+    text-align: center;
+}
+
+.high-score h1 {
+    font-size: 3rem;
+}
