@@ -5,8 +5,8 @@ var startButtonEl = document.getElementById("start-btn");
 var timerEl = document.getElementById("time");
 var choicesEl = document.getElementById("choices");
 var questionsEl = document.getElementById("questions");
-
-
+var nameEl = document.getElementById("name");
+var submitButtonEl = document.getElementById("submit")
 
 var questions = [
     {
@@ -67,7 +67,6 @@ function showQuestions() {
     var choiceButton = document.createElement("button");
     choiceButton.setAttribute("class", "choice");
     choiceButton.setAttribute("value", choice);
-    console.log(time);
 
     choiceButton.textContent = choice;
 
@@ -102,12 +101,15 @@ function questionClick() {
 }
 
 function endQuiz() {
+    clearInterval(timer);
     var questionTitleEl = document.getElementById("question-title");
     questionTitleEl.setAttribute("class", "hidden");
     choicesEl.setAttribute("class", "hidden");
 
+    var finalScoreEl = document.getElementById("final-score");
+    finalScoreEl.textContent = time;
     var finalScreenEl = document.getElementById("final-screen");
-    finalScreenEl.removeAttribute("class");
+    finalScreenEl.removeAttribute("class", "hidden");
 
 }
 
@@ -129,5 +131,37 @@ function runTimer() {
     }
 }
 
+function setHighScore() {
+    var name = nameEl.value.trim();
+    if (name !== "") {
+    var highscores = JSON.parse(window.localStorage.getItem("highscores")) || [];
+    var newScore = {
+        score: time,
+        name: name
+    };
+    highscores.push(newScore)
+    window.localStorage.setItem("highscores", JSON.stringify(highscores));
+    window.location.href = "highscores.html";
+    }
+    console.log(newScore)
+}
+
+function showHighScores() {
+    highscores.forEach(function(score) {
+        var liTag = document.createElement("li");
+        liTag.textContent = score.name + " - " + score.score;
+        var olEl = document.getElementById("highscores");
+        olEl.appendChild(liTag);
+      });
+
+    var highscores = JSON.parse(window.localStorage.getItem("highscores")) || [];
+    highscores.sort(function(a, b) {
+        return b.score - a.score;
+      });
+    
+    showHighscores();
+}
+
+submitButtonEl.onclick = setHighScore;
 
 startButtonEl.onclick = startQuiz;
