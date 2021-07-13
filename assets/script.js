@@ -140,7 +140,7 @@ function runTimer() {
 function setHighScore() {
     // take the value of the input
     var name = nameEl.value.trim();
-    if (name !== "") {
+    if (name !== null) {
     var highscores = JSON.parse(window.localStorage.getItem("highscores")) || [];
     var newScore = {
         score: time,
@@ -158,5 +158,6 @@ function setHighScore() {
 }
 
 submitButtonEl.onclick = setHighScore;
+debugger;
 
 startButtonEl.onclick = startQuiz;
