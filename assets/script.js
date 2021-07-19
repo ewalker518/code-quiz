@@ -158,6 +158,6 @@ function setHighScore() {
 }
 
 submitButtonEl.onclick = setHighScore;
-debugger;
+
 
 startButtonEl.onclick = startQuiz;

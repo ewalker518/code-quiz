@@ -85,3 +85,7 @@ button:hover {
 .high-score h1 {
     font-size: 3rem;
 }
+
+ol {
+    list-style-type: none;
+}

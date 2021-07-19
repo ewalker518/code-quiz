@@ -1,5 +1,6 @@
 function showHighScores() {
     var highscores = JSON.parse(window.localStorage.getItem("highscores")) || [];
+    console.log(highscores)
     highscores.sort(function(a, b) {
         return b.score - a.score;
       });
@@ -10,7 +11,6 @@ function showHighScores() {
         var olEl = document.getElementById("highscores");
         olEl.appendChild(liTag);
       });
-      console.log(score.name)
-    
-    showHighscores();
 }
+
+showHighScores();
